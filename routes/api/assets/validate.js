@@ -1,6 +1,6 @@
 const Joi = require('joi')
 
-function controlValidation (req, res, next) {
+function validateContact (req, res, next) {
   const createContactsSchema = Joi.object({
     name: Joi.string().min(3).required(),
     email: Joi.string().email().required(),
@@ -13,7 +13,7 @@ function controlValidation (req, res, next) {
   next()
 }
 
-function PatchContact(req, res, next) {
+function validatePatchContact(req, res, next) {
   const createValate = Joi.object({
     name: Joi.string().min(3),
     email: Joi.string().email(),
@@ -27,5 +27,5 @@ function PatchContact(req, res, next) {
   next()
 }
 
-exports.controlValidation = controlValidation
-exports.PatchContact = PatchContact
+exports.validateContact = validateContact
+exports.validatePatchContact = validatePatchContact
