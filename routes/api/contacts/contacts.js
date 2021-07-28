@@ -1,26 +1,26 @@
-const { Router } = require('express')
-const contoller = require('./controller')
-const { validateContact, validatePatchContact } = require('../assets/validate')
-// const {
-//   validateContact,
-//   validatePatchContact,
-// } = require('../helpers/validate')
+const { Router } = require("express");
+const contoller = require("./controller");
 
-const router = Router()
+const {
+  validateContact,
+  validatePatchContact,
+} = require("../helpers/validate");
 
-router.get('/', contoller.getContacts)
+const router = Router();
 
-router.get('/:contactId', contoller.findContactById)
+router.get("/", contoller.getContacts);
 
-router.post('/', validateContact, contoller.postContact)
-router.delete('/:contactId', contoller.deleteContact)
+router.get("/:contactId", contoller.findContactById);
 
-router.patch('/:contactId', validatePatchContact, contoller.patchContact)
+router.post("/", validateContact, contoller.postContact);
+router.delete("/:contactId", contoller.deleteContact);
+
+router.patch("/:contactId", validatePatchContact, contoller.patchContact);
 
 router.patch(
-  '/:contactId/favorite',
+  "/:contactId/favorite",
   validatePatchContact,
   contoller.patchFavorite
-)
+);
 
-module.exports = router
+module.exports = router;

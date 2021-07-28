@@ -1,5 +1,5 @@
-const mongoose = require('mongoose')
-const { Schema } = mongoose
+const mongoose = require("mongoose");
+const { Schema } = mongoose;
 
 const ContactSchema = new Schema({
   name: {
@@ -19,8 +19,8 @@ const ContactSchema = new Schema({
     type: Boolean,
     default: false,
   },
-})
+});
 
-const Contact = mongoose.model('db-contacts', ContactSchema)
+const Contact = mongoose.model("db-contacts", ContactSchema);
 
-module.exports = Contact
+module.exports = Contact;
